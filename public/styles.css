@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#pixelCanvas {
+  border: 1px solid #000;
+  width: 50%;
+}
+
+h1 {
+  font-size: 3rem;
+}
+.box {
+  background-color: aliceblue;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.colorBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+#gridOverlay {
+  height: 2000px;
+  width: 2000px;
+  top: 7.5rem;
+  position: absolute;
+  pointer-events: none; 
+  display: block; 
+}
