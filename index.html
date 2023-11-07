@@ -74,23 +74,24 @@
         const p = 0;
 
      const gridOverlay = document.getElementById('gridOverlay');
-    const overlayContext = gridOverlay.getContext('2d');
-        function drawGridOverlay() {
-        for (let x = 0; x <= canvas.width; x += pixelSize) {
-            overlayContext.moveTo(x, 0);
-            overlayContext.lineTo(x, canvas.height);
-        }
-
+     const overlayContext = gridOverlay.getContext('2d');
+     function drawGridOverlay() {
+         for (let x = 0; x <= canvas.width; x += pixelSize) {
+             overlayContext.moveTo(x, 0);
+             overlayContext.lineTo(x, canvas.height);
+            }
+            
         for (let y = 0; y <= canvas.height; y += pixelSize) {
             overlayContext.moveTo(0, y);
             overlayContext.lineTo(canvas.width, y);
         }
-
+        
         overlayContext.strokeStyle = 'black'; 
         overlayContext.stroke(); 
     }
-
+    
     function toggleGrid() {
+        const gridOverlay = document.getElementById('gridOverlay');
         if (gridOverlay.style.display === 'none') {
             gridOverlay.style.display = 'block'; 
             gridOverlay.style.display = 'none'; 

@@ -37,7 +37,7 @@ app.get('/pixels', async (req, res) => {
 io.on('connection', (socket) => {
   socket.on('pixelData', (data) => {
     socket.broadcast.emit('pixelData', data);
-    writeInDb(data);
+    // writeInDb(data);
   });
 });
 
