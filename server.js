@@ -11,8 +11,6 @@ const server = createServer(app);
 const io = new Server(server);
 app.use(express.static(__dirname + '/public'));
 
-
-
 async function main() {
   // ... you will write your Prisma Client queries here
 
@@ -37,12 +35,10 @@ app.get('/pixels', async (req, res) => {
 io.on('connection', (socket) => {
   socket.on('pixelData', (data) => {
     socket.broadcast.emit('pixelData', data);
-    // writeInDb(data);
+    writeInDb(data);
   });
 });
 
 server.listen(3000, () => {
   console.log('server running at http://localhost:3000');
 });
-
-

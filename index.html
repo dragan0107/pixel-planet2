@@ -11,8 +11,9 @@
 <body>
     <div class="box">
         <h1>Pixel Planet 2</h1>
-            <canvas style="height: 2000px; width: 2000px;" id="pixelCanvas" width="2000" height="2000"></canvas>
-            <canvas id="gridOverlay" width="2000" height="2000"></canvas>
+        <canvas style="height: 2000px; width: 2000px;" id="pixelCanvas"
+            width="2000" height="2000"></canvas>
+        <canvas id="gridOverlay" width="2000" height="2000"></canvas>
         <div class="colorBox">
             <h3>Select Color:</h3>
             <input type="color" id="colorPicker" value="#000000">
@@ -33,7 +34,7 @@
         const canvasHeight = canvas.height;
 
 
-        axios.get('http://localhost:3000/pixels')
+        axios.get('/pixels')
             .then(function (response) {
                 const pixels = response.data;
                 pixels.forEach(pixel => {
@@ -73,32 +74,32 @@
 
         const p = 0;
 
-     const gridOverlay = document.getElementById('gridOverlay');
-     const overlayContext = gridOverlay.getContext('2d');
-     function drawGridOverlay() {
-         for (let x = 0; x <= canvas.width; x += pixelSize) {
-             overlayContext.moveTo(x, 0);
-             overlayContext.lineTo(x, canvas.height);
-            }
-            
-        for (let y = 0; y <= canvas.height; y += pixelSize) {
-            overlayContext.moveTo(0, y);
-            overlayContext.lineTo(canvas.width, y);
-        }
-        
-        overlayContext.strokeStyle = 'black'; 
-        overlayContext.stroke(); 
-    }
-    
-    function toggleGrid() {
         const gridOverlay = document.getElementById('gridOverlay');
-        if (gridOverlay.style.display === 'none') {
-            gridOverlay.style.display = 'block'; 
-            gridOverlay.style.display = 'none'; 
-        }
-    }
+        const overlayContext = gridOverlay.getContext('2d');
+        function drawGridOverlay() {
+            for (let x = 0; x <= canvas.width; x += pixelSize) {
+                overlayContext.moveTo(x, 0);
+                overlayContext.lineTo(x, canvas.height);
+            }
 
-    drawGridOverlay();
+            for (let y = 0; y <= canvas.height; y += pixelSize) {
+                overlayContext.moveTo(0, y);
+                overlayContext.lineTo(canvas.width, y);
+            }
+
+            overlayContext.strokeStyle = 'black';
+            overlayContext.stroke();
+        }
+
+        function toggleGrid() {
+            const gridOverlay = document.getElementById('gridOverlay');
+            if (gridOverlay.style.display === 'none') {
+                gridOverlay.style.display = 'block';
+                gridOverlay.style.display = 'none';
+            }
+        }
+
+        drawGridOverlay();
     </script>
 </body>
 
